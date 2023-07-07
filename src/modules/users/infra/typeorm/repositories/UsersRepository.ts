@@ -59,7 +59,7 @@ class UsersRepository implements IUsersRepository {
     return result;
   }
 
-  public async findById(user_id: number): Promise<User | null> {
+  public async findById(user_id: string): Promise<User | null> {
     const user = await this.ormRepository.findOneBy({
       user_id,
     });

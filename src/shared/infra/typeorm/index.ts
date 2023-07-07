@@ -1,17 +1,32 @@
 import { DataSource } from 'typeorm';
 import { CreateUserTable1687132617418 } from './migrations/1687132617418-CreateUserTable';
+import { CreatePermissions1688690941044 } from './migrations/1688690941044-CreatePermissions';
+import { CreatePermissionsRoles1688691757371 } from './migrations/1688691757371-CreatePermissionsRoles';
+import { CreateRoles1688690601066 } from './migrations/1688690601066-CreateRoles';
+import { CreateUserRoles1688691089939 } from './migrations/1688691089939-CreateUserRoles';
+import { CreateUserPermissions1688691562225 } from './migrations/1688691562225-CreateUserPermissions';
+
 import User from '@modules/users/infra/typeorm/entities/User';
+import Permission from '@modules/permissions/infra/typeorm/entities/Permission';
+import Role from '@modules/roles/infra/typeorm/entities/Role';
 
 export const dataSource = new DataSource({
   type: 'postgres',
   host: 'localhost',
   port: 5432,
-  username: process.env.DATABASE_USER,
-  password: process.env.DATABASE_PASSWORD,
-  database: process.env.DATABASE_NAME,
+  username: 'postgres',
+  password: 'postgres',
+  database: 'postgres',
   synchronize: true,
   logging: false,
-  entities: [User],
+  entities: [User, Permission, Role],
   subscribers: [],
-  migrations: [CreateUserTable1687132617418],
+  migrations: [
+    CreateUserTable1687132617418,
+    CreatePermissions1688690941044,
+    CreatePermissionsRoles1688691757371,
+    CreateRoles1688690601066,
+    CreateUserRoles1688691089939,
+    CreateUserPermissions1688691562225,
+  ],
 });

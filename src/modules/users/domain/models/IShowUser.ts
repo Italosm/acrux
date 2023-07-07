@@ -1,3 +1,3 @@
 export interface IShowUser {
-  id: number;
+  id: string;
 }

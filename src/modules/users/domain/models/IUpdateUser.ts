@@ -1,5 +1,5 @@
 export interface IUpdateUser {
-  user_id: number;
+  user_id: string;
   name: string;
   surname: string;
   user_status: boolean;

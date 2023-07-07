@@ -16,7 +16,7 @@ class UsersController {
 
   public async show(request: Request, response: Response): Promise<Response> {
     const { user_id } = request.params;
-    const id = +user_id;
+    const id = user_id;
 
     const showUser = container.resolve(ShowProfileService);
 

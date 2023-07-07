@@ -7,7 +7,7 @@ import { instanceToInstance } from 'class-transformer';
 export default class ProfileController {
   public async show(request: Request, response: Response): Promise<Response> {
     const showProfile = container.resolve(ShowProfileService);
-    const id = +request.user.user_id;
+    const id = request.user.user_id;
 
     const user = await showProfile.execute({ id });
 
@@ -15,7 +15,7 @@ export default class ProfileController {
   }
 
   public async update(request: Request, response: Response): Promise<Response> {
-    const user_id = +request.user.user_id;
+    const user_id = request.user.user_id;
     const { name, surname, email, password, old_password, user_status } =
       request.body;
 

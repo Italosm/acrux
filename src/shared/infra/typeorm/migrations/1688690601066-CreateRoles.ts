@@ -1,47 +1,29 @@
 import { MigrationInterface, QueryRunner, Table } from 'typeorm';
 
-export class CreateUserTable1687132617418 implements MigrationInterface {
+export class CreateRoles1688690601066 implements MigrationInterface {
   public async up(queryRunner: QueryRunner): Promise<void> {
     await queryRunner.createTable(
       new Table({
-        name: 'users',
+        name: 'roles',
         columns: [
           {
-            name: 'user_id',
+            name: 'role_id',
             type: 'uuid',
             isPrimary: true,
             generationStrategy: 'uuid',
             default: 'uuid_generate_v4()',
           },
           {
-            name: 'email',
+            name: 'name',
             type: 'varchar',
             isUnique: true,
           },
           {
-            name: 'passwordHash',
+            name: 'description',
             type: 'varchar',
-          },
-          {
-            name: 'name',
-            type: 'varchar',
-          },
-          {
-            name: 'surname',
-            type: 'varchar',
-          },
-          {
-            name: 'user_status',
-            type: 'boolean',
-            default: false,
           },
           {
             name: 'created_at',
-            type: 'timestamp with time zone',
-            default: 'now()',
-          },
-          {
-            name: 'updated_at',
             type: 'timestamp with time zone',
             default: 'now()',
           },
@@ -51,6 +33,6 @@ export class CreateUserTable1687132617418 implements MigrationInterface {
   }
 
   public async down(queryRunner: QueryRunner): Promise<void> {
-    await queryRunner.dropTable('users');
+    await queryRunner.dropTable('roles');
   }
 }
