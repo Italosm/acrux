@@ -1,3 +1,4 @@
+import { IPermission } from '@modules/permissions/domain/models/IPermission';
 import {
   Column,
   CreateDateColumn,
@@ -6,7 +7,7 @@ import {
 } from 'typeorm';
 
 @Entity('permissions')
-class Permission {
+class Permission implements IPermission {
   @PrimaryGeneratedColumn('uuid')
   permission_id: string;
 

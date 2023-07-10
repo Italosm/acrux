@@ -5,4 +5,6 @@ export interface IUser {
   email: string;
   user_status: boolean;
   password: string;
+  created_at: Date;
+  updated_at: Date;
 }

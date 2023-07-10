@@ -10,9 +10,10 @@ import {
 import { Exclude } from 'class-transformer';
 import Permission from '@modules/permissions/infra/typeorm/entities/Permission';
 import Role from '@modules/roles/infra/typeorm/entities/Role';
+import { IUser } from '@modules/users/domain/models/IUser';
 
 @Entity('users')
-class User {
+class User implements IUser {
   @PrimaryGeneratedColumn('uuid')
   user_id: string;
 
@@ -52,11 +53,9 @@ class User {
   permissions: Permission[];
 
   @CreateDateColumn()
-  @Exclude()
   created_at: Date;
 
   @UpdateDateColumn()
-  @Exclude()
   updated_at: Date;
 }
 
