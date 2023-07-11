@@ -1,8 +1,8 @@
 import { dataSource } from '@shared/infra/typeorm';
 import { Repository } from 'typeorm';
-import { IPaginateRole } from '@modules/roles/domain/models/IPaginateRole';
-import { ICreateRole } from '@modules/roles/domain/models/ICreateRole';
-import { IRolesRepository } from '@modules/roles/domain/repositories/IRolesRepository';
+import { IPaginateRole } from '@modules/users/domain/models/IPaginateRole';
+import { ICreateRole } from '@modules/users/domain/models/ICreateRole';
+import { IRolesRepository } from '@modules/users/domain/repositories/IRolesRepository';
 import Role from '../entities/Role';
 import { SearchParams } from '@modules/users/domain/repositories/IUsersRepository';
 

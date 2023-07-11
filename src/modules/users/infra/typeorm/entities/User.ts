@@ -8,8 +8,8 @@ import {
   JoinTable,
 } from 'typeorm';
 import { Exclude } from 'class-transformer';
-import Permission from '@modules/permissions/infra/typeorm/entities/Permission';
-import Role from '@modules/roles/infra/typeorm/entities/Role';
+import Permission from '@modules/users/infra/typeorm/entities/Permission';
+import Role from '@modules/users/infra/typeorm/entities/Role';
 import { IUser } from '@modules/users/domain/models/IUser';
 
 @Entity('users')

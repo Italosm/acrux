@@ -1,8 +1,8 @@
 import { dataSource } from '@shared/infra/typeorm';
 import { Repository } from 'typeorm';
-import { IPaginatePermission } from '@modules/permissions/domain/models/IPaginatePermission';
-import { ICreatePermission } from '@modules/permissions/domain/models/ICreatePermission';
-import { IPermissionsRepository } from '@modules/permissions/domain/repositories/IPermissionsRepository';
+import { IPaginatePermission } from '@modules/users/domain/models/IPaginatePermission';
+import { ICreatePermission } from '@modules/users/domain/models/ICreatePermission';
+import { IPermissionsRepository } from '@modules/users/domain/repositories/IPermissionsRepository';
 import Permission from '../entities/Permission';
 import { SearchParams } from '@modules/users/domain/repositories/IUsersRepository';
 

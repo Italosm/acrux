@@ -1,4 +1,4 @@
-import CreateRoleService from '@modules/roles/services/CreateRoleService';
+import CreateRoleService from '@modules/users/services/CreateRoleService';
 // import ListUserService from '@modules/users/services/ListUserService';
 // import ShowProfileService from '@modules/users/services/ShowProfileService';
 import { Request, Response } from 'express';

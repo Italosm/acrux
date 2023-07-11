@@ -1,4 +1,4 @@
-import { IPermission } from '@modules/permissions/domain/models/IPermission';
+import { IPermission } from '@modules/users/domain/models/IPermission';
 import {
   Column,
   CreateDateColumn,
