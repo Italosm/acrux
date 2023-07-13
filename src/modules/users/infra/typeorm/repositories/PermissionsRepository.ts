@@ -1,10 +1,11 @@
 import { dataSource } from '@shared/infra/typeorm';
-import { Repository } from 'typeorm';
+import { In, Repository } from 'typeorm';
 import { IPaginatePermission } from '@modules/users/domain/models/IPaginatePermission';
 import { ICreatePermission } from '@modules/users/domain/models/ICreatePermission';
 import { IPermissionsRepository } from '@modules/users/domain/repositories/IPermissionsRepository';
 import Permission from '../entities/Permission';
 import { SearchParams } from '@modules/users/domain/repositories/IUsersRepository';
+import { IPermission } from '@modules/users/domain/models/IPermission';
 
 class PermissionsRepository implements IPermissionsRepository {
   private ormRepository: Repository<Permission>;
@@ -62,6 +63,14 @@ class PermissionsRepository implements IPermissionsRepository {
   public async findByName(name: string): Promise<Permission | null> {
     const permission = await this.ormRepository.findOneBy({
       name,
+    });
+    return permission;
+  }
+  public async findByIds(
+    permission_id: string[],
+  ): Promise<IPermission[] | null> {
+    const permission = await this.ormRepository.findBy({
+      permission_id: In(permission_id),
     });
     return permission;
   }

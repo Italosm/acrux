@@ -8,8 +8,8 @@ export interface IUser {
   email: string;
   user_status: boolean;
   password: string;
-  roles: Role[];
-  permissions: Permission[];
+  roles: Role[] | null;
+  permissions: Permission[] | null;
   created_at: Date;
   updated_at: Date;
 }
