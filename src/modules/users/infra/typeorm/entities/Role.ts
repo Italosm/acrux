@@ -7,9 +7,10 @@ import {
   PrimaryGeneratedColumn,
 } from 'typeorm';
 import Permission from '@modules/users/infra/typeorm/entities/Permission';
+import { IRole } from '@modules/users/domain/models/IRole';
 
 @Entity('roles')
-class Role {
+class Role implements IRole {
   @PrimaryGeneratedColumn('uuid')
   role_id: string;
 

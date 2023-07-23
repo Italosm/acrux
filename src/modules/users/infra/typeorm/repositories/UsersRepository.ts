@@ -65,6 +65,16 @@ class UsersRepository implements IUsersRepository {
     });
     return user;
   }
+  async findByIdWithRelations(
+    user_id: string,
+    relations: string[],
+  ): Promise<User | null> {
+    const user = await this.ormRepository.findOne({
+      where: { user_id },
+      relations: relations,
+    });
+    return user;
+  }
   public async findByEmail(email: string): Promise<User | null> {
     const user = await this.ormRepository.findOneBy({
       email,

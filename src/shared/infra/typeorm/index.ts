@@ -16,7 +16,7 @@ export const dataSource = new DataSource({
   port: 5432,
   username: 'postgres',
   password: 'postgres',
-  database: 'iabse',
+  database: 'postgres',
   synchronize: true,
   logging: false,
   entities: [User, Permission, Role],

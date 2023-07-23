@@ -1,0 +1,68 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "API IAB-SE",
+    "description": "API para sistema IAB-SE.",
+    "contact": {
+      "name": "Suport",
+      "email": "a@a.com.br"
+    },
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/users": {
+      "post": {
+        "tags": ["users"],
+        "description": "Criação de um usuário",
+        "requestBody": {
+          "description": "Dados para cadastro de um usuário",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RequestCreateUser"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Cadastro realizado com sucesso."
+          },
+          "400": {
+            "description": "Email do usuário a ser criado já está em uso ou os campos não foram preenchidos corretamente."
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "RequestCreateUser": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Nome do usuário a ser criado.",
+            "example": "Cecilia"
+          },
+          "surname": {
+            "type": "string",
+            "description": "Sobrenome do usuário a ser criado.",
+            "example": "Payne"
+          },
+          "email": {
+            "type": "string",
+            "description": "Email do usuário a ser criado.",
+            "example": "cecilia.payne@astronomer.com"
+          },
+          "password": {
+            "type": "string",
+            "description": "Senha do usuário a ser criado.",
+            "example": "Cp102938"
+          }
+
+        }
+      }
+    }
+  }
+}

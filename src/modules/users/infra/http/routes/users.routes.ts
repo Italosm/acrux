@@ -27,7 +27,6 @@ usersRouter.post(
       surname: Joi.string().required(),
       email: Joi.string().email().required(),
       password: Joi.string().required(),
-      user_status: Joi.boolean().default(false),
     },
   }),
   usersController.create,

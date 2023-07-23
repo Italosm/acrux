@@ -18,17 +18,17 @@ class CreateUserAccessControlListService {
   ) {}
   public async execute({
     user_id,
-    roles_id,
-    permissions_id,
+    roles,
+    permissions,
   }: ICreateUserACL): Promise<IUser> {
     const user = await this.usersRepository.findById(user_id);
     if (!user) {
       throw new AppError('User does not exists!');
     }
     const permissionsExists = await this.permissionsRepository.findByIds(
-      permissions_id,
+      permissions,
     );
-    const rolesExists = await this.rolesRepository.findByIds(roles_id);
+    const rolesExists = await this.rolesRepository.findByIds(roles);
     user.permissions = permissionsExists;
     user.roles = rolesExists;
     await this.usersRepository.save(user);

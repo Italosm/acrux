@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import '@shared/container';
 import express, { NextFunction, Request, Response } from 'express';
@@ -23,6 +24,7 @@ app.use(
         message: error.message,
       });
     }
+    console.log(error);
     return response.status(500).json({
       status: 'error',
       message: 'Internal server error',

@@ -5,7 +5,6 @@ import { ICreateRole } from '@modules/users/domain/models/ICreateRole';
 import { IRolesRepository } from '@modules/users/domain/repositories/IRolesRepository';
 import Role from '../entities/Role';
 import { SearchParams } from '@modules/users/domain/repositories/IUsersRepository';
-import { IRole } from '@modules/users/domain/models/IRole';
 
 class RolesRepository implements IRolesRepository {
   private ormRepository: Repository<Role>;
@@ -57,13 +56,13 @@ class RolesRepository implements IRolesRepository {
     });
     return role;
   }
-  public async findByIds(role_id: string[]): Promise<IRole[] | null> {
+  public async findByIds(role_id: string[]): Promise<Role[] | null> {
     const role = await this.ormRepository.findBy({
       role_id: In(role_id),
     });
     return role;
   }
-  public async findByName(name: string): Promise<IRole | null> {
+  public async findByName(name: string): Promise<Role | null> {
     const role = await this.ormRepository.findOneBy({
       name,
     });
