@@ -16,11 +16,10 @@ class UsersController {
 
   public async show(request: Request, response: Response): Promise<Response> {
     const { user_id } = request.params;
-    const id = user_id;
 
     const showUser = container.resolve(ShowProfileService);
 
-    const user = await showUser.execute({ id });
+    const user = await showUser.execute({ user_id });
 
     return response.json(instanceToInstance(user));
   }

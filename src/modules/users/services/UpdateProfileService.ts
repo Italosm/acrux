@@ -18,7 +18,6 @@ class UpdateProfileService {
     surname,
     email,
     password,
-    user_status,
     old_password,
   }: IUpdateUser): Promise<IUser> {
     const user = await this.usersRepository.findById(user_id);
@@ -26,11 +25,12 @@ class UpdateProfileService {
     if (!user) {
       throw new AppError('User not found.');
     }
-
-    const userUpdateEmail = await this.usersRepository.findByEmail(email);
-
-    if (userUpdateEmail && userUpdateEmail.user_id !== user_id) {
-      throw new AppError('There is already one user with this email.');
+    if (email) {
+      const userUpdateEmail = await this.usersRepository.findByEmail(email);
+      if (userUpdateEmail && userUpdateEmail.user_id !== user_id) {
+        throw new AppError('There is already one user with this email.');
+      }
+      user.email = email;
     }
 
     if (password && !old_password) {
@@ -48,12 +48,8 @@ class UpdateProfileService {
     }
 
     user.name = name;
-    user.email = email;
     user.surname = surname;
-    user.user_status = user_status;
-
     await this.usersRepository.save(user);
-
     return user;
   }
 }

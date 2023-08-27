@@ -18,7 +18,6 @@ profileRouter.put(
       email: Joi.string().email(),
       surname: Joi.string(),
       old_password: Joi.string(),
-      user_status: Joi.boolean(),
       password: Joi.string().optional(),
       password_confirmation: Joi.string()
         .valid(Joi.ref('password'))

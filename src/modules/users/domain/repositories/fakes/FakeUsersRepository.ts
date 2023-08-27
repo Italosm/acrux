@@ -59,6 +59,13 @@ class FakeUsersRepository implements IUsersRepository {
     }
     return user;
   }
+  public async findByIdWithRelations(user_id: string): Promise<User | null> {
+    const user = await this.users.find(user => user.user_id === user_id);
+    if (!user) {
+      return null;
+    }
+    return user;
+  }
   public async findByEmail(email: string): Promise<User | null> {
     const user = this.users.find(user => user.email === email);
     if (!user) {

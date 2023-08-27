@@ -7,6 +7,7 @@ import usersRouter from '@modules/users/infra/http/routes/users.routes';
 import swaggerUi from 'swagger-ui-express';
 import swaggerDocument from 'swagger.json';
 import { Router } from 'express';
+import passwordRouter from '@modules/users/infra/http/routes/password.routes';
 
 const routes = Router();
 
@@ -19,6 +20,7 @@ routes.use('/profile', profileRouter);
 routes.use('/roles', rolesRouter);
 routes.use('/permissions', permissionsRouter);
 routes.use('/acl', aclRouter);
+routes.use('/password', passwordRouter);
 routes.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 export default routes;

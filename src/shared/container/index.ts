@@ -9,6 +9,8 @@ import RolesRepository from '@modules/users/infra/typeorm/repositories/RolesRepo
 
 import { IPermissionsRepository } from '@modules/users/domain/repositories/IPermissionsRepository';
 import PermissionsRepository from '@modules/users/infra/typeorm/repositories/PermissionsRepository';
+import { IUserTokensRepository } from '@modules/users/domain/repositories/IUserTokensRepository';
+import UserTokensRepository from '@modules/users/infra/typeorm/repositories/UserTokensRepository';
 
 container.registerSingleton<IUsersRepository>(
   'UsersRepository',
@@ -23,4 +25,9 @@ container.registerSingleton<IRolesRepository>(
 container.registerSingleton<IPermissionsRepository>(
   'PermissionsRepository',
   PermissionsRepository,
+);
+
+container.registerSingleton<IUserTokensRepository>(
+  'UserTokensRepository',
+  UserTokensRepository,
 );

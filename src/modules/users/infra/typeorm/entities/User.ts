@@ -34,6 +34,7 @@ class User implements IUser {
     type: 'boolean',
     default: false,
   })
+  @Exclude()
   user_status: boolean;
 
   @ManyToMany(() => Role)
