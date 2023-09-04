@@ -68,6 +68,16 @@ class RolesRepository implements IRolesRepository {
     });
     return role;
   }
+  async findByIdWithRelations(
+    role_id: string,
+    relations: string[],
+  ): Promise<Role | null> {
+    const role = await this.ormRepository.findOne({
+      where: { role_id },
+      relations: relations,
+    });
+    return role;
+  }
 }
 
 export default RolesRepository;
